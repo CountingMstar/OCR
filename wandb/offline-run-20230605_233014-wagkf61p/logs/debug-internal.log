@@ -1,0 +1,17 @@
+2023-06-05 23:30:14,717 INFO    StreamThr :102308 [internal.py:wandb_internal():91] W&B internal server running at pid: 102308, started at: 2023-06-05 23:30:14.716745
+2023-06-05 23:30:14,719 DEBUG   HandlerThread:102308 [handler.py:handle_request():138] handle_request: status
+2023-06-05 23:30:14,719 DEBUG   SenderThread:102308 [sender.py:send_request():317] send_request: status
+2023-06-05 23:30:14,720 INFO    WriterThread:102308 [datastore.py:open_for_write():75] open: /home/moonstar/python/NLP/OCR/wandb/offline-run-20230605_233014-wagkf61p/run-wagkf61p.wandb
+2023-06-05 23:30:14,780 DEBUG   HandlerThread:102308 [handler.py:handle_request():138] handle_request: run_start
+2023-06-05 23:30:14,790 DEBUG   HandlerThread:102308 [meta.py:__init__():34] meta init
+2023-06-05 23:30:14,790 DEBUG   HandlerThread:102308 [meta.py:__init__():49] meta init done
+2023-06-05 23:30:14,790 DEBUG   HandlerThread:102308 [meta.py:probe():215] probe
+2023-06-05 23:30:14,802 DEBUG   HandlerThread:102308 [meta.py:_setup_git():205] setup git
+2023-06-05 23:30:14,818 DEBUG   HandlerThread:102308 [meta.py:_setup_git():212] setup git done
+2023-06-05 23:30:14,818 DEBUG   HandlerThread:102308 [meta.py:_save_pip():53] save pip
+2023-06-05 23:30:14,819 DEBUG   HandlerThread:102308 [meta.py:_save_pip():67] save pip done
+2023-06-05 23:30:14,819 DEBUG   HandlerThread:102308 [meta.py:_save_conda():74] save conda
+2023-06-05 23:30:23,962 DEBUG   HandlerThread:102308 [meta.py:_save_conda():84] save conda done
+2023-06-05 23:30:23,962 DEBUG   HandlerThread:102308 [meta.py:probe():253] probe done
+2023-06-05 23:31:34,659 DEBUG   HandlerThread:102308 [handler.py:handle_request():138] handle_request: partial_history
+2023-06-05 23:32:49,466 DEBUG   HandlerThread:102308 [handler.py:handle_request():138] handle_request: partial_history
