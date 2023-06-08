@@ -8,4 +8,9 @@ from transformers import TrainingArguments, Trainer
 
 
 dataset = load_dataset("imdb")
-print(dataset["train"][100])
+print('====================')
+print(dataset["train"][0])
+print('====================')
+print(dataset["train"][1])
+print('====================')
+print(dataset["train"][2])

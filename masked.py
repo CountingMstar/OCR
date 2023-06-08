@@ -4,7 +4,7 @@ from transformers import pipeline
 fill_mask = pipeline("fill-mask", model="bert-base-uncased")
 
 # Define the input sentence with masked words
-input_sentence = "I want to [MASK] NLP tasks using Python."
+input_sentence = "I [MASK] a boy"
 
 # Generate predictions for the masked word
 predictions = fill_mask(input_sentence)

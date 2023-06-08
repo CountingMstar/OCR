@@ -5,10 +5,12 @@ from transformers import TrainingArguments
 import numpy as np
 import evaluate
 from transformers import TrainingArguments, Trainer
+import torch
 
+device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 
 dataset = load_dataset("imdb")
-print(dataset["train"][100])
+dataset["train"][100]
 
 tokenizer = AutoTokenizer.from_pretrained("bert-base-cased")
 
@@ -21,6 +23,7 @@ small_train_dataset = tokenized_datasets["train"].shuffle(seed=42).select(range(
 small_eval_dataset = tokenized_datasets["test"].shuffle(seed=42).select(range(1000))
 
 model = AutoModelForSequenceClassification.from_pretrained("bert-base-cased", num_labels=5)
+model.to(device)
 
 training_args = TrainingArguments(output_dir="test_trainer")
 
