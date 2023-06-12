@@ -11,7 +11,8 @@ import matplotlib.patches as patches
 # import cv2
 print(cv2.__version__)
 
-img = cv2.imread('1.png')
+# img = cv2.imread('1.png')
+img = cv2.imread('text_image.png')
 # plt.imshow(img)
 # cv2.imshow(img)
 
@@ -74,6 +75,7 @@ for r in result:
         sentence +=  '[MASK] '
         mask = True
 
+print('4444444444444444444')
 print(sentence)
 
 
