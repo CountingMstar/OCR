@@ -1,48 +1,98 @@
 from PIL import Image, ImageDraw, ImageFont
 import nltk
+import re
+import pickle
+
+##############
+k = 200000
+max_len = 20
+##############
 
 nltk.download('punkt')  # Download the necessary resource (only required once)
 
 # 텍스트 파일 불러오기
-file_path = "/home/moonstar/python/NLP/OCR/data/train.txt"  # Replace with the actual path to your text file
+file_path = "/home/moonstar/python/NLP/OCR/data/wikisent2.txt"  # Replace with the actual path to your text file
 
 with open(file_path, 'r') as file:
     data = file.read()
 
+
+new_data = data[:k]
+
+def remove_special_characters(text):
+    # Remove punctuation and special characters
+    cleaned_text = re.sub(r'[^\w\s]', '', text)
+    cleaned_text = re.sub(r'[0-9]', '', cleaned_text)
+    return cleaned_text
+
+data = remove_special_characters(new_data)
+# print(data)
+
 new_data = []
 for i in data:
     if i == ' ':
-        new_data.append('   ')
+        new_data.append('       ')
+    elif i == '\n':
+        new_data.append('.      ')
     else:
         new_data.append(i)
-
+    
 new_data = ''.join(new_data)
+# print(new_data)
 
 # Tokenize the sentence
 # tokens = nltk.word_tokenize(sentence)
 sentences = nltk.sent_tokenize(new_data)
 
+# print('11111111111')
+# print(len(sentences))
+sentences.pop()
+# print(len(sentences))
+
+print(len(sentences))
+print(sentences[0])
+
+new_data2 = []
+data_sents = []
+for sentence in sentences:
+    tmp = []
+    sent = ''
+    tokens = nltk.word_tokenize(sentence)
+    # print(tokens)
+    # print(len(tokens))
+
+    if len(tokens) <= max_len:
+        for token in tokens:
+            if token == '.':
+                pass
+            else:
+                sent += '       ' + token
+        new_data2.append(sent)
+        data_sents.append(tokens)
+
+# print(new_data2)
+print('========== Number of sentences =========')
+print(len(new_data2))
+# print(new_data2)
+print(len(data_sents))
+# print(data_sents)
+
+data1 = data_sents
+file_path1 = "data/data_sents.pickle"  # Specify the file path and name
+with open(file_path1, "wb") as file:
+    # Write the data to the file using pickle.dump()
+    pickle.dump(data1, file)
 
 # Define the text to be converted into an image
 # text = "Hello, World!"
 print('==============')
 # text = sentences[0][:50]
-texts = sentences
-print(texts)
+texts = new_data2
+# print(texts)
 
 for i in range(len(texts)):
 
     text = texts[i]
-
-    if i == 5 or i == 9:
-        print('3333333333333333333')
-        print(text)
-        print(len(text))
-
-    if i == 11:
-        print(len(text))
-        print(text)
-
 
     # Set the font properties
     font_size = 100
